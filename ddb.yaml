@@ -1,0 +1,12 @@
+file:
+  excludes:
+    - ./example_configuration
+
+core:
+  domain:
+    sub: sonarqube
+
+shell:
+  aliases:
+    sonar-scanner: docker run --rm -it -v $(pwd):/usr/src --workdir=/usr/src/. sonarsource/sonar-scanner-cli sonar-scanner
+  global_aliases: ['sonar-scanner']

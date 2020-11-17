@@ -1,3 +1,18 @@
 ###> darkanakin41/project-generator
 .idea
 ###< darkanakin41/project-generator
+###> gfi-centre-ouest/docker-devbox ###
+/docker-compose.yml
+/.bin/pg_dump
+/.bin/pg_restore
+/.bin/psql
+/.certs/sonarqube.test.key
+/.certs/sonarqube.test.crt
+/.certs/.signer.crt
+/.docker/db/Dockerfile
+/*ddb.local.*
+/.bin/dc
+/.bash_enter
+/.bash_leave
+/.docker/db/fixuid.tar.gz
+###< gfi-centre-ouest/docker-devbox ###

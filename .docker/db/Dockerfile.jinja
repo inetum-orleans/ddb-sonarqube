@@ -1,0 +1,12 @@
+FROM postgres:12.2
+LABEL maintainer="Pierre LEJEUNE <pierre.lejeune@gfi.fr>"
+
+RUN apt-get update \
+&& apt-get install -y --no-install-recommends postgresql \
+&& rm -rf /var/lib/apt/lists/*
+
+# Mount this volume to help loading/exporting dumps
+RUN mkdir /app
+VOLUME /app
+
+USER postgres
