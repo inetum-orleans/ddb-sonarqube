@@ -1,4 +1,4 @@
-Configurations disponibles
+Configurations
 ===
 
 Dans ce dossier vous trouverez de multiple configurations d'exemple. Pour les utiliser, il faudra :
@@ -8,7 +8,7 @@ Dans ce dossier vous trouverez de multiple configurations d'exemple. Pour les ut
 * Ajouter la configuration suivante dans votre fichier `ddb.yaml` ou `ddb.local.yaml`:
 ```yaml
 sonar:
-  host: http://sonar.test # L'adresse de votre SonarQube
+  host: http://sonarqube.test # L'adresse de votre SonarQube
   token: XXXXX # Le token généré dans SonarQube
   project_key: XXXXX # La clé projet généré dans SonarQube 
 ```
