@@ -16,4 +16,5 @@
 /.bash_leave
 /.docker/db/fixuid.tar.gz
 /bin/sonar-scanner
+/plugins/sonarqube-community-branch-plugin.jar
 ###< gfi-centre-ouest/docker-devbox ###

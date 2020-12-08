@@ -22,7 +22,16 @@ ddb.Compose() {
                   'SONAR_JDBC_URL': 'jdbc:postgresql://db:5432/sonarqube',
                   'SONAR_JDBC_USERNAME': 'sonarqube',
                   'SONAR_JDBC_PASSWORD': 'sonarqube',
-                }
+                },
+                volumes: [
+                    "sonarqube-db-data:/var/lib/postgresql/data:rw",
+                    "sonarqube_conf:/opt/sonarqube/conf",
+                    "sonarqube_data:/opt/sonarqube/data",
+                    "sonarqube_extensions:/opt/sonarqube/extensions",
+                    "sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins",
+                    ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin.jar",
+                    ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/lib/common/sonarqube-community-branch-plugin.jar"
+                ]
             },
 
 		"db": ddb.Build("db")
@@ -37,8 +46,7 @@ ddb.Compose() {
                 },
                 volumes: [
                     "sonarqube-db-data:/var/lib/postgresql/data:rw",
-                    ddb.path.project + ":" + app_workdir,
-//                    ddb.path.project + "/.docker/db/init/init.sql:/docker-entrypoint-initdb.d/init.sql"
+                    ddb.path.project + ":" + app_workdir
                 ]
             },
     }

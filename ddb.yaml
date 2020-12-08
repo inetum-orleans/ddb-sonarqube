@@ -2,6 +2,13 @@ file:
   excludes:
     - ./configurations
 
+copy:
+  specs:
+    - source: "https://github.com/mc1arke/sonarqube-community-branch-plugin/releases/download/1.6.0/sonarqube-community-branch-plugin-1.6.0.jar"
+      destination: "plugins"
+      filename: "sonarqube-community-branch-plugin.jar"
+      dispatch:  []
+
 core:
   domain:
     sub: sonarqube
