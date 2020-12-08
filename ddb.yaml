@@ -7,7 +7,16 @@ copy:
     - source: "https://github.com/mc1arke/sonarqube-community-branch-plugin/releases/download/1.6.0/sonarqube-community-branch-plugin-1.6.0.jar"
       destination: "plugins"
       filename: "sonarqube-community-branch-plugin.jar"
-      dispatch:  []
+      dispatch: [ ]
+    - source: "https://github.com/dependency-check/dependency-check-sonar-plugin/releases/download/2.0.6/sonar-dependency-check-plugin-2.0.6.jar"
+      destination: "plugins"
+      filename: "sonar-dependency-check-plugin.jar"
+      dispatch: [ ]
+
+permissions:
+  specs:
+    "bin/dependency-check": "+x"
+    "bin/sonar-scanner": "+x"
 
 core:
   domain:

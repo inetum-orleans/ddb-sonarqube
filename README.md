@@ -30,6 +30,7 @@ Puis installer un alias sonar-scanner global
 
 ```
 ln -fs $(pwd)/bin/sonar-scanner ~/.docker-devbox/bin
+ln -fs $(pwd)/bin/dependency-check ~/.docker-devbox/bin
 ```
 
 # Connexion
