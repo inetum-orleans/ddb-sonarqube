@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+docker run --rm -it -v $(pwd):/usr/src --workdir=/usr/src/. --network={{ docker.reverse_proxy.network_names['reverse-proxy'] }} sonarsource/sonar-scanner-cli sonar-scanner "$@"

@@ -15,4 +15,5 @@
 /.bash_enter
 /.bash_leave
 /.docker/db/fixuid.tar.gz
+/bin/sonar-scanner
 ###< gfi-centre-ouest/docker-devbox ###
