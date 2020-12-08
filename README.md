@@ -18,7 +18,8 @@ sudo sysctl -w vm.max_map_count=262144
 Ensuite, il faut configurer la stack : 
 ```shell script
 ddb configure
-dc up -d
+$(ddb activate)
+docker-compose up -d
 ```
 
 # Configuration Sonarqube
