@@ -32,18 +32,6 @@ Puis installer un alias sonar-scanner global
 ln -fs $(pwd)/bin/sonar-scanner ~/.docker-devbox/bin
 ```
 
-# Configuration Sonarqube
-
-Si vous le souhaitez, en rajouter un ddb.local.yaml au sein de votre projet, vous pourrez surcharger tout ou partie de
-la configuration.
-
-Un exemple est la manière dont démarre sonarqube, soit à la demande, soit à chaque démarrage de la machine :
-
-```yaml
-docker:
-  restart_policy: 'unless-stopped'
-```
-
 # Connexion
 
 Sonarqube sera accessible via son adresse, récupérable grace à la commande `ddb info`

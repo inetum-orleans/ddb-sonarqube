@@ -12,3 +12,6 @@ copy:
 core:
   domain:
     sub: sonarqube
+
+docker:
+  restart_policy: 'unless-stopped'
