@@ -1,6 +1,6 @@
 file:
   excludes:
-    - ./example_configuration
+    - ./configurations
 
 core:
   domain:
