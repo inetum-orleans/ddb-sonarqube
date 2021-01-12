@@ -2,21 +2,23 @@
 .idea
 ###< darkanakin41/project-generator
 ###> gfi-centre-ouest/docker-devbox ###
+/*ddb.local.*
 /docker-compose.yml
+/.bin/dc
 /.bin/pg_dump
 /.bin/pg_restore
 /.bin/psql
 /.certs/sonarqube.test.key
 /.certs/sonarqube.test.crt
 /.certs/.signer.crt
-/.docker/db/Dockerfile
-/*ddb.local.*
-/.bin/dc
 /.bash_enter
 /.bash_leave
+/.docker/db/Dockerfile
 /.docker/db/fixuid.tar.gz
+/.docker/sonarqube/sonar.properties
 /bin/dependency-check
 /bin/sonar-scanner
 /plugins/sonarqube-community-branch-plugin.jar
 /plugins/sonar-dependency-check-plugin.jar
+/plugins/sonar-auth-oidc-plugin.jar
 ###< gfi-centre-ouest/docker-devbox ###

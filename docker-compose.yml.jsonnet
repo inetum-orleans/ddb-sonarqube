@@ -21,7 +21,7 @@ ddb.Compose() {
                   'SONAR_ES_BOOTSTRAP_CHECKS_DISABLE': 'true',
                   'SONAR_JDBC_URL': 'jdbc:postgresql://db:5432/sonarqube',
                   'SONAR_JDBC_USERNAME': 'sonarqube',
-                  'SONAR_JDBC_PASSWORD': 'sonarqube',
+                  'SONAR_JDBC_PASSWORD': 'sonarqube'
                 },
                 volumes: [
                     "sonarqube-db-data:/var/lib/postgresql/data:rw",
@@ -29,9 +29,14 @@ ddb.Compose() {
                     "sonarqube_data:/opt/sonarqube/data",
                     "sonarqube_extensions:/opt/sonarqube/extensions",
                     "sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins",
+                    ddb.path.project + "/.docker/sonarqube/sonar.properties:/opt/sonarqube/conf/sonar.properties",
                     ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin.jar",
                     ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/lib/common/sonarqube-community-branch-plugin.jar",
                     ddb.path.project + "/plugins/sonar-dependency-check-plugin.jar:/opt/sonarqube/extensions/plugins/sonar-dependency-check-plugin.jar"
+                ]
+            } + {
+                [if ddb.env.is('prod') then "volumes"]+:[
+                    ddb.path.project + "/plugins/sonar-auth-oidc-plugin.jar:/opt/sonarqube/extensions/plugins/sonar-auth-oidc-plugin.jar"
                 ]
             },
 
