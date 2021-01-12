@@ -5,6 +5,7 @@ local db_password = "drupal";
 
 local domain = std.join('.', [std.extVar("core.domain.sub"), std.extVar("core.domain.ext")]);
 local port_prefix = std.extVar("docker.port_prefix");
+local sonarqube_oauth = std.extVar("sonarqube.plugin.oauth");
 
 local web_workdir = "/var/www/html";
 local app_workdir = "/app";
@@ -32,14 +33,10 @@ ddb.Compose() {
                     ddb.path.project + "/.docker/sonarqube/sonar.properties:/opt/sonarqube/conf/sonar.properties",
                     ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin.jar",
                     ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/lib/common/sonarqube-community-branch-plugin.jar",
-                    ddb.path.project + "/plugins/sonar-dependency-check-plugin.jar:/opt/sonarqube/extensions/plugins/sonar-dependency-check-plugin.jar"
-                ]
-            } + {
-                [if ddb.env.is('prod') then "volumes"]+:[
+                    ddb.path.project + "/plugins/sonar-dependency-check-plugin.jar:/opt/sonarqube/extensions/plugins/sonar-dependency-check-plugin.jar",
                     ddb.path.project + "/plugins/sonar-auth-oidc-plugin.jar:/opt/sonarqube/extensions/plugins/sonar-auth-oidc-plugin.jar"
                 ]
             },
-
 		"db": ddb.Build("db")
             + ddb.Binary("psql", app_workdir, "psql --dbname=postgres://sonarqube:sonarqube@sonarqube-db/sonarqube")
             + ddb.Binary("pg_dump", app_workdir, "pg_dump --dbname=postgres://sonarqube:sonarqube@sonarqube-db/sonarqube")

@@ -1,6 +1,0 @@
-copy:
-  specs:
-    - source: "https://github.com/vaulttec/sonar-auth-oidc/releases/download/v2.0.0/sonar-auth-oidc-plugin-2.0.0.jar"
-      destination: "plugins"
-      filename: "sonar-auth-oidc-plugin.jar"
-      dispatch: [ ]

@@ -21,4 +21,5 @@
 /plugins/sonarqube-community-branch-plugin.jar
 /plugins/sonar-dependency-check-plugin.jar
 /plugins/sonar-auth-oidc-plugin.jar
+/Makefile
 ###< gfi-centre-ouest/docker-devbox ###

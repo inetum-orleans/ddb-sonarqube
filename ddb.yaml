@@ -16,7 +16,6 @@ copy:
       destination: "plugins"
       filename: "sonar-auth-oidc-plugin.jar"
       dispatch: [ ]
-
 permissions:
   specs:
     "bin/dependency-check": "+x"

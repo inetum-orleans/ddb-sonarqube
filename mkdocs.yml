@@ -1,0 +1,30 @@
+site_name: DDB Sonarqube
+
+site_url: https://gfi-centre-ouest.github.io/ddb-sonarqube
+site_description: DDB base installation and configuration for Sonarqube
+site_author: Rémi Alvergnat <remi.alvergnat@gfi.world>, Pierre Lejeune <pierre.lejeune@gfi.world>
+copyright: Inetum
+
+repo_url: https://github.com/gfi-centre-ouest/ddb-sonarqube
+edit_uri: https://github.com/gfi-centre-ouest/ddb-sonarqube/blob/master/docs
+
+theme:
+  language: 'en'
+  name: 'material'
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.superfences
+
+plugins:
+  - search
+
+extra_css:
+  - css/extra.css
+
+dev_addr: 0.0.0.0:8000
