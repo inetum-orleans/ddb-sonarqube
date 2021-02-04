@@ -33,6 +33,9 @@ ln -fs $(pwd)/bin/sonar-scanner ~/.docker-devbox/bin
 ln -fs $(pwd)/bin/dependency-check ~/.docker-devbox/bin
 ```
 
+Il est possible de créer un fichier `.docker/sonarqube/sonar.custom.properties` pour ajouter des propriétés de 
+configuration Sonarqube, ou bien de passer par l'objet de configuration ddb `sonarqube.config`.
+
 # Connexion
 
 Sonarqube sera accessible via son adresse, récupérable grace à la commande `ddb info`

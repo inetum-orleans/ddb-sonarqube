@@ -5,3 +5,4 @@ sonar.core.serverBaseURL=https://{{ core.domain.sub }}.{{ core.domain.ext }}
 {{ key }}={{ value }}
 {% endfor %}
 {%- endif %}
+{% include '.docker/sonarqube/sonar.custom.properties' ignore missing %}
