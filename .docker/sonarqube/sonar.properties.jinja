@@ -1,7 +1,8 @@
 # Server Base URL
 sonar.core.serverBaseURL=https://{{ core.domain.sub }}.{{ core.domain.ext }}
 {%- if sonarqube is defined and sonarqube.config is defined %}
-{% for key, value in sonarqube.config.items() %}
+# Custom configuration
+{% for key, value in sonarqube.config.items() -%}
 {{ key }}={{ value }}
 {% endfor %}
 {%- endif %}
