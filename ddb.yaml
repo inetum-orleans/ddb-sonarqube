@@ -33,3 +33,6 @@ cookiecutter:
     - template: gh:inetum-orleans/djp-postgres
       extra_context:
         postgres_version: "13"
+
+sonarqube:
+  subdomain: ~

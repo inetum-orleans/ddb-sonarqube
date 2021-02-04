@@ -1,13 +1,5 @@
 local ddb = import 'ddb.docker.libjsonnet';
 
-local db_user = "drupal";
-local db_password = "drupal";
-
-local sonarqube_oauth = std.extVar("sonarqube.plugin.oauth");
-
-local web_workdir = "/var/www/html";
-local app_workdir = "/app";
-
 ddb.Compose(
     ddb.with(import '.docker/postgres/djp.libjsonnet',
     name='db') +
@@ -18,9 +10,9 @@ ddb.Compose(
                 depends_on: ['db'],
                 environment: {
                   'SONAR_ES_BOOTSTRAP_CHECKS_DISABLE': 'true',
-                  'SONAR_JDBC_URL': 'jdbc:postgresql://db:5432/sonarqube',
-                  'SONAR_JDBC_USERNAME': 'sonarqube',
-                  'SONAR_JDBC_PASSWORD': 'sonarqube'
+                  'SONAR_JDBC_URL': 'jdbc:postgresql://db:5432/' + ddb.projectName,
+                  'SONAR_JDBC_USERNAME': ddb.projectName,
+                  'SONAR_JDBC_PASSWORD': ddb.projectName
                 },
                 volumes: [
                     "sonarqube-db-data:/var/lib/postgresql/data:rw",
