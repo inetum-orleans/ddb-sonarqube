@@ -1,25 +1,20 @@
 ###> darkanakin41/project-generator
 .idea
 ###< darkanakin41/project-generator
-###> gfi-centre-ouest/docker-devbox ###
-/*ddb.local.*
-/docker-compose.yml
-/.bin/dc
-/.bin/pg_dump
-/.bin/pg_restore
-/.bin/psql
-/.certs/sonarqube.test.key
-/.certs/sonarqube.test.crt
-/.certs/.signer.crt
-/.bash_enter
-/.bash_leave
-/.docker/db/Dockerfile
-/.docker/db/fixuid.tar.gz
-/.docker/sonarqube/sonar.properties
-/bin/dependency-check
-/bin/sonar-scanner
+/.certs/*
+/.bin/*
+###> inetum-orleans/docker-devbox ###
 /plugins/sonarqube-community-branch-plugin.jar
 /plugins/sonar-dependency-check-plugin.jar
 /plugins/sonar-auth-oidc-plugin.jar
+/.docker/sonarqube/sonar.properties
+/docker-compose.yml
 /Makefile
-###< gfi-centre-ouest/docker-devbox ###
+/bin/dependency-check
+/bin/sonar-scanner
+/*ddb.local.*
+/.bash_enter
+/.bash_leave
+/.docker/postgres/Dockerfile
+/.docker/postgres/fixuid.tar.gz
+###< inetum-orleans/docker-devbox ###

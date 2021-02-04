@@ -1,0 +1,38 @@
+local ddb = import 'ddb.docker.libjsonnet';
+
+local defaultName = ddb.File(std.thisFile).parent.name;
+
+local factory(name, params={}) =
+	local o = {
+		database: ddb.params.value(params, 'database', ddb.projectName),
+		login: ddb.params.value(params, 'login', self.database),
+		password: ddb.params.value(params, 'password', self.login),
+		script: ddb.params.array(params, 'script')
+	};
+
+	{services+: {
+		[name]+:
+			ddb.Build(defaultName) +
+			ddb.User() +
+			ddb.Binary("psql", "/project", "psql --dbname=postgresql://" + o.login + ":" + o.password + "@" + name + "/" + o.database) +
+			ddb.Binary("pg_dump", "/project", "pg_dump --dbname=postgresql://" + o.login + ":" + o.password + "@" + name + "/" + o.database) +
+			ddb.Binary("pg_restore", "/project", "pg_restore --dbname=postgresql://" + o.login + ":" + o.password + "@" + name + "/" + o.database) +
+			ddb.Expose("5432") +
+			{
+				 environment+: {
+					"POSTGRES_USER": o.login,
+					"POSTGRES_PASSWORD": o.password,
+					"POSTGRES_DB": o.database
+				  },
+				  volumes+: [
+					 ddb.path.project + ":/project",
+					 name + "-data:/var/lib/postgresql/data"
+				  ] + std.mapWithIndex(function(index, script) ddb.path.project + script + ":/docker-entrypoint-initdb.d/" + std.format("%03d", index + 1) + "-" + ddb.File(script).name, o.script)
+			}
+		}
+	};
+
+{
+  factory: factory,
+  defaultName: defaultName
+}

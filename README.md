@@ -1,11 +1,11 @@
-gfi-centre-ouest/ddb-sonarqube
+ddb-sonarqube
 ===
 Ce projet permet de mettre à disposition une instance locale de SonarQube et de s'en servir au sein des différents
 projets.
 
 # Installation
 
-Avant de lancer les, il vous faut mettre à jour la configuration de la machine :
+Il vous faut mettre à jour la configuration de la machine :
 
 ```shell script
 sudo sed -i -e '/^\(vm.max_map_count=\).*/{s//\1262144/;:a;n;ba;q}' -e '$avm.max_map_count=262144' /etc/sysctl.conf
@@ -26,7 +26,7 @@ $(ddb activate)
 docker-compose up -d
 ```
 
-Puis installer un alias sonar-scanner global
+Puis installer des alias globaux
 
 ```
 ln -fs $(pwd)/bin/sonar-scanner ~/.docker-devbox/bin
