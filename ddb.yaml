@@ -1,4 +1,5 @@
 core:
+  required_version: "1.8.0"
   project:
     name: sonarqube
 
@@ -18,11 +19,6 @@ copy:
       destination: "plugins"
       filename: "sonar-auth-oidc-plugin.jar"
 
-permissions:
-  specs:
-    "bin/dependency-check": "+x"
-    "bin/sonar-scanner": "+x"
-
 docker:
   compose:
     project_name: sonarqube
@@ -33,6 +29,3 @@ cookiecutter:
     - template: gh:inetum-orleans/djp-postgres
       extra_context:
         postgres_version: "13"
-
-sonarqube:
-  subdomain: ~

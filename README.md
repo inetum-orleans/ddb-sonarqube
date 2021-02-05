@@ -26,12 +26,10 @@ $(ddb activate)
 docker-compose up -d
 ```
 
-Puis installer des alias globaux
+Deux commandes sont alors enregistrées globalement dans `~/.docker-devbox/.bin`:
 
-```
-ln -fs $(pwd)/bin/sonar-scanner ~/.docker-devbox/bin
-ln -fs $(pwd)/bin/dependency-check ~/.docker-devbox/bin
-```
+- `dependency-check`
+- `sonar-scanner`
 
 Il est possible de créer un fichier `.docker/sonarqube/sonar.custom.properties` pour ajouter des propriétés de 
 configuration Sonarqube, ou bien de passer par l'objet de configuration ddb `sonarqube.config`.

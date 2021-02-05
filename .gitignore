@@ -10,8 +10,6 @@
 /.docker/sonarqube/sonar.properties
 /docker-compose.yml
 /Makefile
-/bin/dependency-check
-/bin/sonar-scanner
 /*ddb.local.*
 /.bash_enter
 /.bash_leave
