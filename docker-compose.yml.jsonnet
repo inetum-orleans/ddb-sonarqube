@@ -3,10 +3,6 @@ local ddb = import 'ddb.docker.libjsonnet';
 ddb.Compose(
     ddb.with(import '.docker/postgres/djp.libjsonnet',
     name='db') +
-    ddb.with(import '.docker/sonar-scanner/djp.libjsonnet',
-    params={global: true}) +
-    ddb.with(import '.docker/owasp-dependency-check/djp.libjsonnet',
-    params={global: true, args: "--format \"ALL\" --enableExperimental"}) +
     { services+: {
         sonarqube: ddb.Image("sonarqube:community")
             + ddb.VirtualHost("9000", ddb.domain, "sonarqube")

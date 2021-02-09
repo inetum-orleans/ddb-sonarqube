@@ -1,7 +1,6 @@
 ddb-sonarqube
 ===
-Ce projet permet de mettre à disposition une instance locale de SonarQube et de s'en servir au sein des différents
-projets.
+Ce projet permet de mettre à disposition une instance locale de SonarQube.
 
 # Installation
 
@@ -26,11 +25,6 @@ $(ddb activate)
 docker-compose up -d
 ```
 
-Deux commandes sont alors enregistrées globalement dans `~/.docker-devbox/.bin`:
-
-- `dependency-check`
-- `sonar-scanner`
-
 Il est possible de créer un fichier `.docker/sonarqube/sonar.custom.properties` pour ajouter des propriétés de 
 configuration Sonarqube, ou bien de passer par l'objet de configuration ddb `sonarqube.config`.
 
@@ -43,4 +37,6 @@ Le compte par défaut est celui de base de SonarQube : admin/admin
 À partir de là, vous pouvez créer vos projets, générer vos tokens et utiliser votre instance locale de SonarQube dans
 vos projets
 
-# [Configuration projet](configurations/README.md)
+# Exécuter un scan sur un projet
+
+Pour exécuter un scan, voir [inetum-orleans/ddb-sonarqube-scanner](https://github.com/inetum-orleans/ddb-sonarqube-scanner).
