@@ -1,0 +1,31 @@
+local ddb = import 'ddb.docker.libjsonnet';
+
+local defaultName = ddb.File(std.thisFile).parent.name;
+
+local factory(name, params={}) =
+	local o = {
+		global: ddb.params.value(params, 'global', false),
+		args: ddb.params.value(params, 'args', null)
+	};
+
+	{services+: {
+		[name]+:
+            ddb.Image("owasp/dependency-check:latest") +
+            ddb.Binary("dependency-check",
+                       "/src",
+                       "--scan /src --out /src/odc-reports" +
+                       (if o.args != null then " " + o.args else ""),
+                       global=true) +
+            ddb.User() +
+            {
+                volumes: [
+                    defaultName + "-data:/usr/share/dependency-check/data"
+                ]
+            },
+		}
+	};
+
+{
+  factory: factory,
+  defaultName: defaultName
+}

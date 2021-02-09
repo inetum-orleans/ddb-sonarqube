@@ -3,20 +3,11 @@ local ddb = import 'ddb.docker.libjsonnet';
 ddb.Compose(
     ddb.with(import '.docker/postgres/djp.libjsonnet',
     name='db') +
+    ddb.with(import '.docker/sonar-scanner/djp.libjsonnet',
+    params={global: true}) +
+    ddb.with(import '.docker/owasp-dependency-check/djp.libjsonnet',
+    params={global: true, args: "--format \"ALL\" --enableExperimental"}) +
     { services+: {
-        sonarscanner: ddb.Image("sonarsource/sonar-scanner-cli") +
-        ddb.Binary("sonar-scanner", "/usr/src", "sonar-scanner", global=true) +
-        {
-            command: 'sonar-scanner --help'
-        },
-        dependencycheck: ddb.Image("owasp/dependency-check") +
-        ddb.Binary("dependency-check", "/src", "--scan /src --format \"ALL\" --out /src/odc-reports --enableExperimental", global=true) +
-        ddb.User() +
-        {
-            volumes: [
-                "${HOME}/.dependency-check:/usr/share/dependency-check/data"
-            ]
-        },
         sonarqube: ddb.Image("sonarqube:community")
             + ddb.VirtualHost("9000", ddb.domain, "sonarqube")
             + {
