@@ -25,5 +25,3 @@ cookiecutter:
     - template: gh:inetum-orleans/djp-postgres
       extra_context:
         postgres_version: "13"
-    - template: gh:inetum-orleans/djp-owasp-dependency-check
-    - template: gh:inetum-orleans/djp-sonar-scanner
