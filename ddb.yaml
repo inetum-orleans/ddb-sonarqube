@@ -5,9 +5,11 @@ core:
 
 copy:
   specs:
-    - source: "https://github.com/mc1arke/sonarqube-community-branch-plugin/releases/download/1.6.0/sonarqube-community-branch-plugin-1.6.0.jar"
-      destination: "plugins"
-      filename: "sonarqube-community-branch-plugin.jar"
+# Released version doesn't work with Sonar 8.7. Use manually compiled version until 1.7.0 is out.
+# see https://github.com/mc1arke/sonarqube-community-branch-plugin/issues/309
+#    - source: "https://github.com/mc1arke/sonarqube-community-branch-plugin/releases/download/1.6.0/sonarqube-community-branch-plugin-1.6.0.jar"
+#      destination: "plugins"
+#      filename: "sonarqube-community-branch-plugin.jar"
     - source: "https://github.com/dependency-check/dependency-check-sonar-plugin/releases/download/2.0.6/sonar-dependency-check-plugin-2.0.6.jar"
       destination: "plugins"
       filename: "sonar-dependency-check-plugin.jar"
