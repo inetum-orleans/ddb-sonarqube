@@ -4,7 +4,7 @@ ddb.Compose(
     ddb.with(import '.docker/postgres/djp.libjsonnet',
     name='db') +
     { services+: {
-        sonarqube: ddb.Image("sonarqube:community")
+        sonarqube: ddb.Image("sonarqube:10-community")
             + ddb.VirtualHost("9000", ddb.domain, "sonarqube")
             + {
                 depends_on: ['db'],
