@@ -4,7 +4,7 @@ ddb.Compose(
     ddb.with(import '.docker/postgres/djp.libjsonnet',
     name='db') +
     { services+: {
-        sonarqube: ddb.Image("sonarqube:10-community")
+        sonarqube: ddb.Image("sonarqube:10.3-community")
             + ddb.VirtualHost("9000", ddb.domain, "sonarqube")
             + {
                 depends_on: ['db'],
@@ -22,7 +22,6 @@ ddb.Compose(
                     "sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins",
                     ddb.path.project + "/.docker/sonarqube/sonar.properties:/opt/sonarqube/conf/sonar.properties",
                     ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/extensions/plugins/sonarqube-community-branch-plugin.jar",
-                    ddb.path.project + "/plugins/sonarqube-community-branch-plugin.jar:/opt/sonarqube/lib/common/sonarqube-community-branch-plugin.jar",
                     ddb.path.project + "/plugins/sonar-dependency-check-plugin.jar:/opt/sonarqube/extensions/plugins/sonar-dependency-check-plugin.jar",
                     ddb.path.project + "/plugins/sonar-auth-oidc-plugin.jar:/opt/sonarqube/extensions/plugins/sonar-auth-oidc-plugin.jar"
                 ]
