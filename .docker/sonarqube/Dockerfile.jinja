@@ -1,0 +1,4 @@
+FROM sonarqube:10.3-community
+
+COPY --chown=sonarqube:sonarqube plugins/* /opt/sonarqube/extensions/plugins/
+COPY --chown=sonarqube:sonarqube sonar.properties /opt/sonarqube/conf/sonar.properties

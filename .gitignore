@@ -4,9 +4,6 @@
 /.certs/*
 /.bin/*
 ###> inetum-orleans/docker-devbox ###
-/plugins/sonarqube-community-branch-plugin.jar
-/plugins/sonar-dependency-check-plugin.jar
-/plugins/sonar-auth-oidc-plugin.jar
 /.docker/sonarqube/sonar.properties
 /docker-compose.yml
 /Makefile
