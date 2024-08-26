@@ -13,3 +13,7 @@
 /.docker/postgres/Dockerfile
 /.docker/postgres/fixuid.tar.gz
 ###< inetum-orleans/docker-devbox ###
+
+###> dumps ###
+*.sql
+###< dumps ###
