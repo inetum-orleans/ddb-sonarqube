@@ -19,7 +19,7 @@ sudo sysctl -w vm.max_map_count=262144
 It will update the same configuration but local to your session.
 
 # Installation
-First, you need to clone the [repository of the project](https://github.com/gfi-centre-ouest/ddb-sonarqube/)
+First, you need to clone the [repository of the project](https://github.com/inetum-orleans/ddb-sonarqube/)
 
 Then, you need to configure the project with ddb configuration. For more detail, please refer to [docker-devbox-ddb] 
 official documentation.
@@ -41,9 +41,10 @@ If you want to check the URL to access it, simply run `ddb info`.
 # Default plugins
 
 By default, the project contains the following plugins:
+
 1. [dependency-check/dependency-check-sonar-plugin](https://github.com/dependency-check/dependency-check-sonar-plugin)
 2. [mc1arke/sonarqube-community-branch-plugin](https://github.com/mc1arke/sonarqube-community-branch-plugin)
-3. [vaulttec/sonar-auth-oidc](https://github.com/vaulttec/sonar-auth-oidc/releases/download/v2.0.0/sonar-auth-oidc-plugin-2.0.0.jar)
+3. [vaulttec/sonar-auth-oidc](https://github.com/vaulttec/sonar-auth-oidc)
 
 # Configuration
 
@@ -66,7 +67,7 @@ sonarqube:
     "sonar.auth.oidc.enabled": true
 ```
 
-Once everything is configure as wanted, just run `ddb configure` and restart your containers using `docker-compose down`
+Once everything is configure as wanted, just run `ddb configure` and restart your containers using `docker compose down`
 and `docker compose up -d` 
 
-[docker-devbox-ddb]: https://gfi-centre-ouest.github.io/docker-devbox-ddb/
+[docker-devbox-ddb]: https://inetum-orleans.github.io/docker-devbox-ddb/
