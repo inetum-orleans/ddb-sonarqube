@@ -31,7 +31,7 @@ ddb configure
 
 Now you can run the project:
 ```shell
-docker-compose up -d
+docker compose up -d
 ```
 
 That's it! Sonarqube is now running in your environement with ddb!
@@ -67,6 +67,6 @@ sonarqube:
 ```
 
 Once everything is configure as wanted, just run `ddb configure` and restart your containers using `docker-compose down`
-and `docker-compose up -d` 
+and `docker compose up -d` 
 
 [docker-devbox-ddb]: https://gfi-centre-ouest.github.io/docker-devbox-ddb/

@@ -22,7 +22,7 @@ Ensuite, il faut configurer la stack :
 ```shell script
 ddb configure
 $(ddb activate)
-docker-compose up -d
+docker compose up -d
 ```
 
 Il est possible de créer un fichier `.docker/sonarqube/sonar.custom.properties` pour ajouter des propriétés de 

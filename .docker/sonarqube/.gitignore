@@ -1,1 +1,7 @@
 sonar.custom.properties
+###> inetum-orleans/docker-devbox ###
+/Dockerfile
+/plugins/sonarqube-community-branch-plugin.jar
+/plugins/sonar-dependency-check-plugin.jar
+/plugins/sonar-auth-oidc-plugin.jar
+###< inetum-orleans/docker-devbox ###
