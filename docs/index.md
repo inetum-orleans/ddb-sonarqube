@@ -45,7 +45,6 @@ By default, the project contains the following plugins:
 1. [dependency-check/dependency-check-sonar-plugin](https://github.com/dependency-check/dependency-check-sonar-plugin)
 2. [mc1arke/sonarqube-community-branch-plugin](https://github.com/mc1arke/sonarqube-community-branch-plugin)
 3. [vaulttec/sonar-auth-oidc](https://github.com/vaulttec/sonar-auth-oidc)
-4. [cnescatlab/sonar-cnes-report](https://github.com/cnescatlab/sonar-cnes-report)
 
 # Configuration
 
