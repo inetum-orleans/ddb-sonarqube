@@ -1,9 +1,5 @@
 FROM postgres:16
 
-RUN apt-get update \
-&& apt-get install -y --no-install-recommends postgresql \
-&& rm -rf /var/lib/apt/lists/*
-
 # Mount this volume to help loading/exporting dumps
 RUN mkdir /project
 VOLUME /project
